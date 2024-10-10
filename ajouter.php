@@ -14,22 +14,7 @@
 
 
     </header>
-    <main class="container">
-        <h3 class="text-succes">
-            <a href="ajouter.php">PHP</a>
-          
-        </h3>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, repellat deserunt officia eos distinctio, omnis sequi adipisci hic quasi unde tempore saepe velit corrupti, assumenda iusto excepturi tenetur. Sequi, voluptatibus.</p>
-        <div>
-            Créé par CLTR LE GOAT
-        </div>
-        <hr>
-    <div> tutu
-    </div>
-    <p style="width= 50%">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-    </p>
-    <p> le ...... </p>
+  
         <form action="" method="POST">
             <div class="form-group">
                 <label for="">PSEUDO</label>
