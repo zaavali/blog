@@ -23,9 +23,9 @@
     </header>
     <main class="container">
         <h1 class="text-success">Liste article</h1>
-        <?php while($articles as $query =>fetch_assoc()): ?>
+        <?php while($articles = $query ->fetch_assoc()): ?>
         <h2 class="text-succes">
-            <a href="article.php" <?= var_dump($article[$cle][0]): ?>></a>
+            <a href="article.php" <?= var_dump($article[$cle][0]) ?>></a>
           
         </h2>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, repellat deserunt officia eos distinctio, omnis sequi adipisci hic quasi unde tempore saepe velit corrupti, assumenda iusto excepturi tenetur. Sequi, voluptatibus.</p>
