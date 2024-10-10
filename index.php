@@ -33,6 +33,6 @@
             Créé par CLTR LE GOAT
         </div>
         <hr>
-            <?php endwhile; ?>
+            <?php endwhile; ?> 
 </body>
 </html>
