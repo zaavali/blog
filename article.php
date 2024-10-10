@@ -1,59 +1,65 @@
 <?php
-    $conn = mysqli_connect("localhost", "root", "", "blog");
+    $connect = mysqli_connect("localhost", "root", "", "blog");
+    
+    $query = mysqli_query($connect, "SELECT * FROM test WHERE id = ".$_GET['id']);
 
-$query = mysqli_query($connect, "SELECT * FROM test WHERE id =".$_GET['id']);
-$art = mysqli_fetch_assoc($query);
-$queryCommentByArt = mysqli_query($connect, " SELECT * FROM commentaire WHERE id_art = ")
+    $art = mysqli_fetch_assoc($query);
+
+    $queryCommentByArt = mysqli_query($connect, "SELECT * FROM commentaire WHERE id_article = " . $art['id']);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
+
     <header class="bg-secondary p-4">
-        <h1 class="text-center">Blog</h1>
+    <h1 class="text-center"><a href=".">BLOG</a></h1>
         <div class="text-end">
-            <a href="" class="text-light">Administration</a>
+            <a href="ajouter.php" class="text-light">Administration</a>
         </div>
-
-
     </header>
-    <main class="container">
-        <h3 class="text-succes">
-            <a href="article.php">PHP</a>
-          
-        </h3>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, repellat deserunt officia eos distinctio, omnis sequi adipisci hic quasi unde tempore saepe velit corrupti, assumenda iusto excepturi tenetur. Sequi, voluptatibus.</p>
-        <div>
-            Créé par CLTR LE GOAT
-        </div>
-        <hr>
-    <div> tutu
-    </div>
-    <?php while($comment = $queryCommentByArt->fetch_assoc()); ?>
+    <main class="container-fluid">
+        <h1 class="text-center">Articel <?= $art['titre'] ?></h1>
+        <h2 class="text-success">
+            <a href="article.php"><?= $art['titre'] ?></a>
+        </h2>
+        <p><?= $art['contenu'] ?> </p>
+        <div>Créé le <?= $art['date'] ?> </div>
 
-    <p style="width= 50%">
-        <?= $comment ?>
-    </p>
-    <p> le ...... </p>
+        <hr>
+
+        <?php while($comment = $queryCommentByArt->fetch_assoc()): ?>
+       
+        <p style="width: 50%;"><?= $comment['contenu'] ?> </p>
+        <p>le <?= $comment['date'] ?></p>
+
+        <hr>
+        <?php endwhile; ?>
+
         <form action="" method="POST">
             <div class="form-group">
-                <label for="">PSEUDO</label>
-                <input  name="pseudo" class="form-control">
+                <label for="">Pseudo</label>
+                <input type="text" name="pseudo" class="form-control">
             </div>
             <div class="form-group">
                 <label for="">Contenu</label>
-                <textarea  name="Contenu" class="form-control"></textarea>
+                <textarea name="contenu" class="form-control"></textarea>
             </div>
 
             <input type="submit" class="btn btn-success mt-3">
         </form>
-            <footer class="text-center bg-secondary p-4 mt-5">
-                BLOG - IPSSI
-            </footer>
+
+        
+    </main>
+
+    <footer class="text-center bg-secondary p-4 mt-5">
+        BLOG - IPSSI
+    </footer>
+    
 </body>
 </html>

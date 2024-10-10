@@ -1,38 +1,44 @@
 <?php
-    $conn = mysqli_connect("localhost", "root", "", "blog");
+    $connect = mysqli_connect("localhost", "root", "", "blog");
 
     $query = mysqli_query($connect, "SELECT * FROM test");
-
-    $articles = mysqli_fetch_all($query);
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
+
     <header class="bg-secondary p-4">
-        <h1 class="text-center">BLOG</h1>
+
+        <h1 class="text-center"><a href=".">BLOG IPSSI</a></h1>
+
         <div class="text-end">
             <a href="ajouter.php" class="text-light">Administration</a>
         </div>
-
-
     </header>
-    <main class="container">
-        <h1 class="text-success">Liste article</h1>
-        <?php while($articles = $query ->fetch_assoc()): ?>
-        <h2 class="text-succes">
-            <a href="article.php" <?= var_dump($article[$cle][0]) ?>></a>
-          
-        </h2>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, repellat deserunt officia eos distinctio, omnis sequi adipisci hic quasi unde tempore saepe velit corrupti, assumenda iusto excepturi tenetur. Sequi, voluptatibus.</p>
-        <div>
-            Créé par CLTR LE GOAT
-        </div>
-        <hr>
-            <?php endwhile; ?> 
+    <main class="container-fluid">
+        <h1 class="text-center">Liste article</h1>
+
+        <?php while($article = $query->fetch_assoc()): ?>
+            <h3 class="text-success">
+                <a href="article.php?id=<?= $article['id'] ?>"><?= $article['titre'] ?></a>
+            </h3>
+            <p><?= $article['contenu'] ?></p>
+            <div><?= $article['date'] ?> </div>
+
+            <hr>
+        <?php endwhile; ?>
+    </main>
+
+    <footer class="text-center bg-secondary p-4 mt-5">
+        &copy; - BLOG - IPSSI
+    </footer>
+    
 </body>
 </html>
