@@ -1,3 +1,10 @@
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "blog");
+
+    $query = mysqli_query($connect, "SELECT * FROM test");
+
+    $articles = mysqli_fetch_all($query);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,9 +22,10 @@
 
     </header>
     <main class="container">
-        <h1 class="text-success"></h1>
+        <h1 class="text-success">Liste article</h1>
+        <?php while($articles as $query =>fetch_assoc()): ?>
         <h2 class="text-succes">
-            <a href="article.php">PHP</a>
+            <a href="article.php" <?= var_dump($article[$cle][0]): ?>></a>
           
         </h2>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, repellat deserunt officia eos distinctio, omnis sequi adipisci hic quasi unde tempore saepe velit corrupti, assumenda iusto excepturi tenetur. Sequi, voluptatibus.</p>
@@ -25,18 +33,6 @@
             Créé par CLTR LE GOAT
         </div>
         <hr>
-
-        <h2 class="text-succes">
-            <a href="article.php">JS</a>
-        </h2>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, repellat deserunt officia eos distinctio, omnis sequi adipisci hic quasi unde tempore saepe velit corrupti, assumenda iusto excepturi tenetur. Sequi, voluptatibus.</p>
-        <div>
-            Créé par LEO
-
-        </div>
-        <main>
-            <footer class="text-center bg-secondary p-4 mt-5">
-                BLOG - IPSSI
-            </footer>
+            <?php endwhile; ?>
 </body>
 </html>

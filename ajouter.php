@@ -1,3 +1,14 @@
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "blog");
+
+    if(isset($_POST['article'])){
+        $query = " INSERT INTO test VALUES(NULL, '$titre', '$contenu', 'Now())";
+
+        mysqli_query($connect, $query);
+
+        
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

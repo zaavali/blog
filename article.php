@@ -1,3 +1,11 @@
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "blog");
+
+$query = mysqli_query($connect, "SELECT * FROM test WHERE id =".$_GET['id']);
+$art = mysqli_fetch_assoc($query);
+$queryCommentByArt = mysqli_query($connect, " SELECT * FROM commentaire WHERE id_art = ")
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,8 +34,10 @@
         <hr>
     <div> tutu
     </div>
+    <?php while($comment = $queryCommentByArt->fetch_assoc()); ?>
+
     <p style="width= 50%">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+        <?= $comment ?>
     </p>
     <p> le ...... </p>
         <form action="" method="POST">
