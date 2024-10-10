@@ -7,34 +7,41 @@
 </head>
 <body>
     <header class="bg-secondary p-4">
-        <h1 class="text-center">BLOG</h1>
+        <h1 class="text-center">Blog</h1>
         <div class="text-end">
-            <a href="ajouter.php" class="text-light">Administration</a>
+            <a href="" class="text-light">Administration</a>
         </div>
 
 
     </header>
     <main class="container">
-        <h1 class="text-success"></h1>
-        <h2 class="text-succes">
+        <h3 class="text-succes">
             <a href="article.php">PHP</a>
           
-        </h2>
+        </h3>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, repellat deserunt officia eos distinctio, omnis sequi adipisci hic quasi unde tempore saepe velit corrupti, assumenda iusto excepturi tenetur. Sequi, voluptatibus.</p>
         <div>
             Créé par CLTR LE GOAT
         </div>
         <hr>
+    <div> tutu
+    </div>
+    <p style="width= 50%">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+    </p>
+    <p> le ...... </p>
+        <form action="" method="POST">
+            <div class="form-group">
+                <label for="">PSEUDO</label>
+                <input  name="pseudo" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Contenu</label>
+                <textarea  name="Contenu" class="form-control"></textarea>
+            </div>
 
-        <h2 class="text-succes">
-            <a href="article.php">JS</a>
-        </h2>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, repellat deserunt officia eos distinctio, omnis sequi adipisci hic quasi unde tempore saepe velit corrupti, assumenda iusto excepturi tenetur. Sequi, voluptatibus.</p>
-        <div>
-            Créé par LEO
-
-        </div>
-        <main>
+            <input type="submit" class="btn btn-success mt-3">
+        </form>
             <footer class="text-center bg-secondary p-4 mt-5">
                 BLOG - IPSSI
             </footer>
